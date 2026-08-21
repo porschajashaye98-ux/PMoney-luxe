@@ -10,43 +10,285 @@
 
 <title>PMoney Luxe</title>
 
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
 <style>
 
 *{box-sizing:border-box}
 
-body{margin:0;font-family:Arial,sans-serif;background:#f7f5f2;color:#171717}
+body{
 
-header{background:#111;color:white;text-align:center;padding:28px 15px}
+  margin:0;
 
-.logo{font-size:32px;font-weight:bold;letter-spacing:3px}
+  font-family:Arial,sans-serif;
 
-.tagline{font-size:13px;margin-top:8px;letter-spacing:1px}
+  background:#f7f5f2;
 
-nav{background:white;text-align:center;padding:15px;border-bottom:1px solid #ddd}
+  color:#171717
 
-nav a{color:#111;text-decoration:none;margin:0 12px;font-weight:bold}
+}
 
-.hero{text-align:center;padding:55px 20px;background:linear-gradient(135deg,#fff,#eee)}
+header{
 
-.hero h1{font-size:40px;margin:0 0 12px}
+  background:#111;
 
-.hero p{font-size:17px}
+  color:white;
 
-.button{display:inline-block;background:#111;color:white;padding:14px 25px;border-radius:30px;text-decoration:none;margin-top:15px}
+  text-align:center;
 
-.products{padding:40px 20px;max-width:900px;margin:auto}
+  padding:28px 15px
 
-.products h2{text-align:center;font-size:28px}
+}
 
-.card{background:white;border-radius:18px;padding:20px;margin-top:25px;text-align:center;box-shadow:0 5px 20px #0001}
+.logo{
 
-.product-image{height:260px;background:#eee;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#777}
+  font-size:32px;
 
-.price{font-size:25px;font-weight:bold;margin:15px}
+  font-weight:bold;
 
-.buy{background:#111;color:white;border:0;padding:14px 28px;border-radius:25px;font-size:16px}
+  letter-spacing:3px
 
-footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40px}
+}
+
+.tagline{
+
+  font-size:13px;
+
+  margin-top:8px;
+
+  letter-spacing:1px
+
+}
+
+nav{
+
+  background:white;
+
+  text-align:center;
+
+  padding:15px;
+
+  border-bottom:1px solid #ddd;
+
+  position:sticky;
+
+  top:0;
+
+  z-index:10
+
+}
+
+nav a{
+
+  color:#111;
+
+  text-decoration:none;
+
+  margin:0 12px;
+
+  font-weight:bold
+
+}
+
+.hero{
+
+  text-align:center;
+
+  padding:55px 20px;
+
+  background:linear-gradient(135deg,#fff,#eee)
+
+}
+
+.hero h1{
+
+  font-size:40px;
+
+  margin:0 0 12px
+
+}
+
+.hero p{
+
+  font-size:17px
+
+}
+
+.button{
+
+  display:inline-block;
+
+  background:#111;
+
+  color:white;
+
+  padding:14px 25px;
+
+  border-radius:30px;
+
+  text-decoration:none;
+
+  margin-top:15px
+
+}
+
+.products{
+
+  padding:40px 15px;
+
+  max-width:1100px;
+
+  margin:auto
+
+}
+
+.products h2{
+
+  text-align:center;
+
+  font-size:28px
+
+}
+
+#status{
+
+  text-align:center;
+
+  margin:20px 0;
+
+  font-weight:bold
+
+}
+
+.search{
+
+  display:block;
+
+  width:100%;
+
+  max-width:500px;
+
+  margin:20px auto;
+
+  padding:14px;
+
+  border:1px solid #ccc;
+
+  border-radius:25px;
+
+  font-size:16px
+
+}
+
+.design-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+  gap:18px;
+
+  margin-top:25px
+
+}
+
+.card{
+
+  background:white;
+
+  border-radius:18px;
+
+  padding:12px;
+
+  text-align:center;
+
+  box-shadow:0 5px 20px #0001
+
+}
+
+.design-image{
+
+  width:100%;
+
+  aspect-ratio:1/1;
+
+  object-fit:cover;
+
+  border-radius:14px;
+
+  background:#eee
+
+}
+
+.design-number{
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  margin:12px 0 8px
+
+}
+
+.price{
+
+  font-size:20px;
+
+  font-weight:bold;
+
+  margin:8px
+
+}
+
+.buy{
+
+  display:block;
+
+  background:#111;
+
+  color:white;
+
+  text-decoration:none;
+
+  padding:12px 8px;
+
+  border-radius:25px;
+
+  font-size:14px;
+
+  font-weight:bold
+
+}
+
+.about{
+
+  text-align:center
+
+}
+
+footer{
+
+  background:#111;
+
+  color:white;
+
+  text-align:center;
+
+  padding:30px;
+
+  margin-top:40px
+
+}
+
+.error{
+
+  color:#b00020;
+
+  text-align:center;
+
+  padding:20px
+
+}
 
 </style>
 
@@ -56,73 +298,371 @@ footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40p
 
 <header>
 
-<div class="logo">PMONEY LUXE</div>
+  <div class="logo">PMONEY LUXE</div>
 
-<div class="tagline">LUXURY • STYLE • MEDICAL ESSENTIALS</div>
+  <div class="tagline">LUXURY • STYLE • MEDICAL ESSENTIALS</div>
 
 </header>
 
 <nav>
 
-<a href="#shop">Shop</a>
+  <a href="#shop">Shop</a>
 
-<a href="#about">About</a>
+  <a href="#about">About</a>
 
-<a href="#contact">Contact</a>
+  <a href="#contact">Contact</a>
 
 </nav>
 
 <section class="hero">
 
-<h1>Welcome to PMoney Luxe</h1>
+  <h1>Welcome to PMoney Luxe</h1>
 
-<p>Stylish medical essentials made for you.</p>
+  <p>Stylish medical essentials made for you.</p>
 
-<a class="button" href="#shop">SHOP NOW</a>
+  <a class="button" href="#shop">SHOP NOW</a>
 
 </section>
 
 <section class="products" id="shop">
 
-<h2>Featured Collection</h2>
+  <h2>Choose Your Design</h2>
 
-<div class="card">
+  <p style="text-align:center">
 
-<div class="product-image">Your Product Photo Here</div>
+    Select the exact design you want.
 
-<h2>Medical Surgical Cap + Badge & Reel</h2>
+  </p>
 
-<p>Stylish and functional medical essentials from PMoney Luxe.</p>
+  <input
 
-<div class="price">$30.00</div>
+    id="search"
 
-<a class="buy" href="https://buy.stripe.com/28E00ldw0fwCdvdg4O8EM00">SHOP NOW</a>
+    class="search"
 
-</div>
+    type="search"
+
+    placeholder="Search Design 001, 002, 003..."
+
+  >
+
+  <div id="status">Loading your 145 PMoney Luxe designs...</div>
+
+  <div id="designGrid" class="design-grid"></div>
 
 </section>
 
-<section class="products" id="about">
+<section class="products about" id="about">
 
-<h2>About PMoney Luxe</h2>
+  <h2>About PMoney Luxe</h2>
 
-<p style="text-align:center">
+  <p>
 
-PMoney Luxe brings style and personality to everyday medical essentials.
+    PMoney Luxe brings style and personality to everyday medical essentials.
 
-</p>
+  </p>
 
 </section>
 
 <footer id="contact">
 
-<strong>PMoney Luxe</strong>
+  <strong>PMoney Luxe</strong>
 
-<p>Thank you for shopping with us.</p>
+  <p>Thank you for shopping with us.</p>
 
-<p>© 2026 PMoney Luxe</p>
+  <p>© 2026 PMoney Luxe</p>
 
 </footer>
+
+<script>
+
+const STRIPE_LINK =
+
+"https://buy.stripe.com/28E00ldw0fwCdvdg4O8EM00";
+
+const ZIP_FILES = [
+
+  "PMoney_Luxe_Batch_1_Designs_001-100.zip",
+
+  "PMoney_Luxe_Batch_2_Designs_101-145.zip"
+
+];
+
+const designs = [];
+
+function getDesignNumber(filename){
+
+  const matches = filename.match(/\d+/g);
+
+  if(!matches) return 999;
+
+  for(const value of matches){
+
+    const number = parseInt(value,10);
+
+    if(number >= 1 && number <= 145){
+
+      return number;
+
+    }
+
+  }
+
+  return 999;
+
+}
+
+async function loadZip(zipName){
+
+  const response = await fetch(zipName);
+
+  if(!response.ok){
+
+    throw new Error(
+
+      "Could not load " + zipName +
+
+      " (" + response.status + ")"
+
+    );
+
+  }
+
+  const zip = await JSZip.loadAsync(await response.blob());
+
+  const entries = Object.values(zip.files);
+
+  for(const entry of entries){
+
+    if(entry.dir) continue;
+
+    const lower = entry.name.toLowerCase();
+
+    if(
+
+      !lower.endsWith(".jpg") &&
+
+      !lower.endsWith(".jpeg") &&
+
+      !lower.endsWith(".png") &&
+
+      !lower.endsWith(".webp") &&
+
+      !lower.endsWith(".gif")
+
+    ){
+
+      continue;
+
+    }
+
+    const number = getDesignNumber(entry.name);
+
+    if(number < 1 || number > 145) continue;
+
+    const blob = await entry.async("blob");
+
+    const imageUrl = URL.createObjectURL(blob);
+
+    designs.push({
+
+      number:number,
+
+      filename:entry.name,
+
+      image:imageUrl
+
+    });
+
+  }
+
+}
+
+function renderDesigns(filter=""){
+
+  const grid = document.getElementById("designGrid");
+
+  grid.innerHTML = "";
+
+  let list = [...designs]
+
+    .sort((a,b)=>a.number-b.number);
+
+  if(filter.trim()){
+
+    const search = filter
+
+      .toLowerCase()
+
+      .replace("design","")
+
+      .trim();
+
+    list = list.filter(item =>
+
+      String(item.number).padStart(3,"0").includes(search) ||
+
+      String(item.number).includes(search) ||
+
+      item.filename.toLowerCase().includes(search)
+
+    );
+
+  }
+
+  if(list.length === 0){
+
+    grid.innerHTML =
+
+      '<div class="error">No design found.</div>';
+
+    return;
+
+  }
+
+  list.forEach(item=>{
+
+    const padded =
+
+      String(item.number).padStart(3,"0");
+
+    const card =
+
+      document.createElement("div");
+
+    card.className = "card";
+
+    const img =
+
+      document.createElement("img");
+
+    img.className = "design-image";
+
+    img.src = item.image;
+
+    img.alt = "PMoney Luxe Design " + padded;
+
+    const title =
+
+      document.createElement("div");
+
+    title.className = "design-number";
+
+    title.textContent =
+
+      "Design " + padded;
+
+    const price =
+
+      document.createElement("div");
+
+    price.className = "price";
+
+    price.textContent = "$30.00";
+
+    const buy =
+
+      document.createElement("a");
+
+    buy.className = "buy";
+
+    buy.textContent =
+
+      "BUY DESIGN " + padded;
+
+    /*
+
+      This sends the exact design number
+
+      to Stripe as the client reference ID.
+
+    */
+
+    buy.href =
+
+      STRIPE_LINK +
+
+      "?client_reference_id=PMONEY-DESIGN-" +
+
+      padded;
+
+    buy.target = "_blank";
+
+    buy.rel = "noopener";
+
+    card.appendChild(img);
+
+    card.appendChild(title);
+
+    card.appendChild(price);
+
+    card.appendChild(buy);
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+async function start(){
+
+  const status =
+
+    document.getElementById("status");
+
+  try{
+
+    for(const zip of ZIP_FILES){
+
+      status.textContent =
+
+        "Loading " + zip + "...";
+
+      await loadZip(zip);
+
+    }
+
+    designs.sort((a,b)=>a.number-b.number);
+
+    status.textContent =
+
+      designs.length +
+
+      " designs loaded. Choose your design below.";
+
+    renderDesigns();
+
+  }catch(error){
+
+    console.error(error);
+
+    status.innerHTML =
+
+      '<div class="error">' +
+
+      'We could not load the design batches yet.<br><br>' +
+
+      error.message +
+
+      '</div>';
+
+  }
+
+}
+
+document
+
+  .getElementById("search")
+
+  .addEventListener("input",function(){
+
+    renderDesigns(this.value);
+
+  });
+
+start();
+
+</script>
 
 </body>
 
